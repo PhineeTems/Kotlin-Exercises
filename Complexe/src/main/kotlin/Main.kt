@@ -1,7 +1,15 @@
 fun main(args: Array<String>) {
-    println("Hello World!")
+    val c1: Complexe = Complexe(2.0,3.0)
+    val c2: Complexe = Complexe(4.0,-5.0)
 
-    // Try adding program arguments via Run/Debug configuration.
-    // Learn more about running applications: https://www.jetbrains.com/help/idea/running-applications.html.
-    println("Program arguments: ${args.joinToString()}")
+    println("Complexe 1 : ${c1.toString()}")
+    println("Complexe 2 : ${c2.toString()}")
+    println("L'addition est : ${c1.add(c2)}")
+    println("Le produit est : ${c1.mult(c2)}")
+
+    val table: MutableList<Complexe> = arrayListOf(c1,c2)
+    Complexe.autoAddImage(table)
+    println("Complexe 1 : ${c1.toString()}")
+    println("Complexe 2 : ${c2.toString()}")
+
 }
