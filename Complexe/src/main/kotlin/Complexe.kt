@@ -3,7 +3,10 @@ class Complexe(r:Double, i:Double) {
     var i: Double = i
 
     override fun toString(): String {
-         return "$r+i$i"
+         if (i < 0)
+             return "$r $i i"
+        else
+            return "$r + $i i"
     }
     fun add(c: Complexe):Complexe{
 
