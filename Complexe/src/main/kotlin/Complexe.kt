@@ -24,7 +24,7 @@ class Complexe(var r:Double, var i:Double) {
     companion object{
         fun autoAddImage(table: MutableList<Complexe>):Unit{
             for (c in table){
-                c.i += 1
+                c.i += 1.0
             }
         }
     }
