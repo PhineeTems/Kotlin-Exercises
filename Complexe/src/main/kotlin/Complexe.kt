@@ -14,7 +14,7 @@ class Complexe(r:Double, i:Double) {
     }
     fun mult(c: Complexe):Complexe{
         val re: Double = (this.r * c.r) - (this.i * c.i)
-        val im: Double = (this.r * c.i) + (this.i * c.i)
+        val im: Double = (this.r * c.i) + (this.i * c.r)
 
         return Complexe(re,im)
     }
