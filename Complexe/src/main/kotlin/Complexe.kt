@@ -1,9 +1,12 @@
-class Complexe(r:Double, i:Double) {
-    var r: Double = r
-    var i: Double = i
+class Complexe(var r:Double, var i:Double) {
+
 
     override fun toString(): String {
-         if (i < 0)
+        if (i==0.0)
+            return "$r"
+        else if (r==0.0)
+            return "$i i"
+        else if (i < 0)
              return "$r $i i"
         else
             return "$r + $i i"
