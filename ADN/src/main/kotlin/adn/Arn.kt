@@ -1,4 +1,4 @@
 package adn
 
-class Arn(Fibre) {
+class Arn() {
 }
