@@ -26,17 +26,24 @@ class Fibre(var nucleoTable:MutableList<Nucleotide>){
     }
 
     fun compareFibre(f: Fibre):Boolean{
-            return (this.duplicateFibre() == f)
+        if (this.nucleoTable.size !== f.nucleoTable.size) {
+            return false
+        }
+        else{
+            for (i in 0 until this.nucleoTable.size){
+                if (this.nucleoTable[i] != complementFibre(f.nucleoTable[i]))
+                    return false
+            }
+        }
+        return true
     }
     fun hamming(f: Fibre): Int{
         var result: Int = 0
-
-        if (!this.compareFibre(f)){
             for (i in 0 until this.nucleoTable.size){
                 if (this.nucleoTable[i] != f.nucleoTable[i])
                     result ++
             }
-        }
+
        return result
     }
 
