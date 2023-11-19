@@ -31,12 +31,32 @@ class Fibre(var nucleoTable:MutableList<Nucleotide>){
     }
     fun hamming(f: Fibre): Int{
         var result: Int = 0
-            for (i in 0 until this.nucleoTable.size){
-                if (this.nucleoTable[i] != f.nucleoTable[i])
+        if (this.nucleoTable.size == f.nucleoTable.size){
+            for (i in 0 until nucleoTable.size){
+                if (this.nucleoTable[i] != f.nucleoTable[i]){
                     result ++
+                }
             }
-
-       return result
+            return result
+        }
+        else
+            return -1
     }
-
+    fun simpleHamming(f: Fibre):Int{
+        var result:Int = 0
+        try {
+            if (this.nucleoTable.size != f.nucleoTable.size){
+                throw Exception()
+            }
+            else{
+                for (i in 0 until this.nucleoTable.size){
+                    if (this.nucleoTable[i] != f.nucleoTable[i])
+                        result ++
+                }
+            }
+        }catch (e:Exception){
+            println("les taille ne correspond pas !!")
+        }
+        return result
+    }
 }
