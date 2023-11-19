@@ -1,37 +1,27 @@
 package adn
 
 class Fibre(var nucleoTable:MutableList<Nucleotide>){
+    constructor():this(mutableListOf<Nucleotide>())
 
-
-    fun emptyFibre(f1: Fibre): Boolean{
-
-       return this.nucleoTable.isEmpty()
+    fun emptyFibre(): Boolean{
+        return nucleoTable.isEmpty()
     }
 
     fun duplicateFibre(): Fibre{
-        var result: Fibre = Fibre(mutableListOf<Nucleotide>())
+        var result: Fibre = Fibre()
 
-        for (fibre in this.nucleoTable){
-            result.nucleoTable.add(complementFibre(fibre))
+        for (nucl in nucleoTable){
+            result.nucleoTable.add(nucl.ComplementFibre())
         }
         return result
     }
-    fun complementFibre(n: Nucleotide):Nucleotide{
-       return when(n){
-            Nucleotide.Adenine ->  Nucleotide.Thymine
-            Nucleotide.Thymine ->  Nucleotide.Adenine
-            Nucleotide.Guanine ->  Nucleotide.Cytosine
-            else ->  Nucleotide.Guanine
-        }
-    }
-
     fun compareFibre(f: Fibre):Boolean{
         if (this.nucleoTable.size !== f.nucleoTable.size) {
             return false
         }
         else{
             for (i in 0 until this.nucleoTable.size){
-                if (this.nucleoTable[i] != complementFibre(f.nucleoTable[i]))
+                if (this.nucleoTable[i] != f.nucleoTable[i].ComplementFibre())
                     return false
             }
         }
