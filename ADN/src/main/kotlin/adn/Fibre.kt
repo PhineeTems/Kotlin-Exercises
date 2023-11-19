@@ -1,21 +1,21 @@
 package adn
 
-class Fibre(var nucleoTable:MutableList<Nucleotide>){
-    constructor():this(mutableListOf<Nucleotide>())
+class Fibre<T>(var nucleoTable:MutableList<T>){
+    constructor():this(mutableListOf<T>())
 
     fun emptyFibre(): Boolean{
         return nucleoTable.isEmpty()
     }
 
-    fun duplicateFibre(): Fibre{
-        var result: Fibre = Fibre()
+    fun duplicateFibre(): Fibre<T>{
+        var result: Fibre<T> = Fibre()
 
         for (nucl in nucleoTable){
             result.nucleoTable.add(nucl.ComplementFibre())
         }
         return result
     }
-    fun compareFibre(f: Fibre):Boolean{
+    fun compareFibre(f: Fibre<T>):Boolean{
         if (this.nucleoTable.size == f.nucleoTable.size){
             for (i in 0 until nucleoTable.size){
                 if (this.nucleoTable[i] != f.nucleoTable[i].ComplementFibre()){
@@ -26,10 +26,10 @@ class Fibre(var nucleoTable:MutableList<Nucleotide>){
         }
         return false
     }
-    fun simpleCompareFibre(f: Fibre): Boolean{
+    fun simpleCompareFibre(f: Fibre<T>): Boolean{
         return this.nucleoTable.equals(f.duplicateFibre().nucleoTable)
     }
-    fun hamming(f: Fibre): Int{
+    fun hamming(f: Fibre<T>): Int{
         var result: Int = 0
         if (this.nucleoTable.size == f.nucleoTable.size){
             for (i in 0 until nucleoTable.size){
@@ -42,7 +42,7 @@ class Fibre(var nucleoTable:MutableList<Nucleotide>){
         else
             return -1
     }
-    fun simpleHamming(f: Fibre):Int{
+    fun simpleHamming(f: Fibre<T>):Int{
         var result:Int = 0
         try {
             if (this.nucleoTable.size != f.nucleoTable.size){

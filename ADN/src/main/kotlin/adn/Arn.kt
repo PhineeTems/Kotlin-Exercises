@@ -1,4 +1,4 @@
 package adn
 
-class Arn() {
+class Arn(var f: Fibre<Nucleid>) {
 }
